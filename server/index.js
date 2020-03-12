@@ -9,6 +9,8 @@ app.use(cors());
 
 const posts = require("./routes/api/posts");
 
+app.use('/api/posts', posts);
+
 // Handle Production
 if(process.env.NODE_ENV === 'production') {
     //static folder
@@ -19,8 +21,6 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 const port = process.env.PORT || 5000;
-
-app.use('/api/posts', posts);
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
 
